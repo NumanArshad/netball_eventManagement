@@ -1,0 +1,23 @@
+export const manageteam_Actions = {
+
+    NEW: "ADD_NEW",
+    SHOW: "SHOW_LIYTEAM_MEMBER",
+    POSTED: "ADDED_NEW_MEMBER",
+    UPDATED: "UPDATE_LIY_MEMBER",
+    DELETED: "REMOVE_LIY_MEMBER",
+    UNDERUPDATE: "FETCH_MEMBER"
+    // FIND:"TODO_FIND",
+    // 	FAILURE: "ADD_FAILURE",
+    // 	// NOT_AUTHORIZED: "LOGIN_ACCOUNT_NOT_AUTHORIZED",
+    // CREATED:"ADD_CREATED",
+    // 'LOGOUT':"LOGOUT_USER"
+
+}
+export const manageteam_Status = {
+
+    NEW: "ADD_NEW",
+    SHOW: "SHOW_LIYTEAM_MEMBER",
+    POSTED: "ADDED_NEW_MEMBER",
+    UNDERUPDATE: "FETCH_MEMBER"
+
+}
