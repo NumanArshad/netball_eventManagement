@@ -8,7 +8,7 @@ let db = new sqlite3.Database('./config/liy_db.sqlite', (err) => {    //:memory 
 
   console.log('Connected to the in-memory SQlite database.');
 })
-module.exports=db
+module.exports = db
 // db.serialize(() => {
 
 //   db.run(`CREATE TABLE  login_tb (
@@ -45,24 +45,24 @@ module.exports=db
 //     console.error("error in creating lyit  table is " + error)
 //   })
 
-//   db.run(`CREATE TABLE  team_player_tb (
-//           id INTEGER PRIMARY KEY AUTOINCREMENT,
-//           player_id INTEGER NOT NULL,
-//           team_id INTEGER NOT NULL,
-//           FOREIGN KEY (player_id) 
-//             REFERENCES player_tb (id) 
-//              ON DELETE CASCADE 
-//              ON UPDATE NO ACTION,
-//           FOREIGN KEY (team_id) 
-//             REFERENCES team_tb (id) 
-//              ON DELETE CASCADE 
-//              ON UPDATE NO ACTION)`, (error, sc) => {
-//     if (!error) {
-//       console.log("create yeam player table success")
-//       return
-//     }
-//     console.error("error in creating lyit  table is " + error)
-//   })
+// db.run(`CREATE TABLE  team_player_tb (
+//         id INTEGER PRIMARY KEY AUTOINCREMENT,
+//         player_id INTEGER NOT NULL,
+//         team_id INTEGER NOT NULL,
+//         FOREIGN KEY (player_id) 
+//           REFERENCES player_tb (id) 
+//            ON DELETE CASCADE 
+//            ON UPDATE NO ACTION,
+//         FOREIGN KEY (team_id) 
+//           REFERENCES team_tb (id) 
+//            ON DELETE CASCADE 
+//            ON UPDATE NO ACTION)`, (error, sc) => {
+//   if (!error) {
+//     console.log("create yeam player table success")
+//     return
+//   }
+//   console.error("error in creating lyit  table is " + error)
+// })
 
 //   // db.run(`delete from login where id='5'`,(error,res)=>{
 //   //     if(!error){
@@ -81,3 +81,22 @@ module.exports=db
 //   // })
 // })
 
+// db.run(`CREATE TABLE  tournaments_tb (
+//           id INTEGER PRIMARY KEY AUTOINCREMENT,
+//           team1_id INTEGER NOT NULL,
+//           team2_id INTEGER NOT NULL,
+//           tournament_date TEXT NOT NULL,
+//           FOREIGN KEY (team1_id) 
+//           REFERENCES team_tb (id) 
+//            ON DELETE CASCADE 
+//            ON UPDATE NO ACTION,
+//           FOREIGN KEY (team2_id) 
+//             REFERENCES team_tb (id) 
+//              ON DELETE CASCADE 
+//              ON UPDATE NO ACTION)`, (error, sc) => {
+//   if (!error) {
+//     console.log("create yeam player table success")
+//     return
+//   }
+//   console.error("error in creating lyit  table is " + error)
+// })

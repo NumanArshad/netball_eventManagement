@@ -31,11 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 let count=0
 class LoginView extends Component {
 
-
-
-
-
-  getScreen(status) {
+getScreen(status) {
     console.log("I am from login Component getScreen: " + status);
     switch (status) {
       case login_Status.NEW:
@@ -50,7 +46,7 @@ class LoginView extends Component {
         );
       break;
       case login_Status.AUTHORIZED:
-       this.props.history.push('/todoView/'+this.props.userId);
+       this.props.history.push('/manage_team');
         return (
           <LoginSuccess handleBackClick={this.props.handleBackClick} />
         );

@@ -7,6 +7,7 @@ var config = require("./config/db");
 const loginController = require("./controllers/LoginController");
 const ManagePlayer_Controller = require("./controllers/ManagePlayer_Controller.js");
 const manageTeam_Controller = require("./controllers/manageTeam_Controller.js");
+const manageTournamentsController = require("./controllers/manageTournamentsController.js");
 const jwt = require("jsonwebtoken")
 const app = express();
 port = process.env.PORT || 3301;
@@ -34,16 +35,16 @@ app.route("/api/login")
 
 // manage player////
 app.route("/api/savePlayer")
-  .post(verifyToken, ManagePlayer_Controller.savePlayer)
+  .post( ManagePlayer_Controller.savePlayer)
 
 app.route("/api/allPlayers")
-  .get(verifyToken,ManagePlayer_Controller.savePlayer)
+  .get(ManagePlayer_Controller.showPlayer)
 
 app.route("/api/updatePlayer/:playerId")
-  .put(ManagePlayer_Controller.savePlayer)
+  .put(ManagePlayer_Controller.editPlayer)
 
 app.route("/api/deletePlayer/:playerId")
-  .delete(ManagePlayer_Controller.savePlayer)
+  .delete(ManagePlayer_Controller.deletePlayer)
 
 ///////////////////////////////
 
@@ -54,12 +55,20 @@ app.route("/api/newTeam")
 app.route("/api/allTeams")
   .get(manageTeam_Controller.showTeam)
 
-app.route("/api/newjoinTeam")
+app.route("/api/joinTeam/:teamId")
   .post(manageTeam_Controller.joinTeam)
 
-app.route("/api/allJoinedTeams")
+app.route("/api/allTeamsPlayers")
   .get(manageTeam_Controller.showJoinedTeam)
 
+///////////////////////////////
+
+///// manage tournaments////
+app.route("/api/newTournaments")
+  .post(manageTournamentsController.organizeTournament)
+
+app.route("/api/allTournaments")
+  .get(manageTournamentsController.showTournaments)
 ///////////////////////////////
 
 //  app.post("/api/assigntoken", (req, res) => {
